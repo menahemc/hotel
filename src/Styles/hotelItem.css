@@ -1,0 +1,38 @@
+.hotelTitel{
+    font-family: inherit;
+    font-weight: 600;
+    font-size: x-large; 
+    color: #003580; 
+}
+.hotelTitel:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.hotel-table-information{
+    float: right;
+}
+
+ngb-rating{
+    color: #febb02;
+}
+.img-div:hover{
+    cursor: pointer;
+}
+.img-div{
+    position: relative;
+    left: -30px;
+}
+.buttons-div{
+    text-align: center;
+    border-left: thin double #D3D3D3;
+}
+.btn{
+    width: 100px;
+    margin: 10px
+}
+.btn:hover{
+    cursor: pointer;
+}
+modal-footer{
+    text-align: center;
+}

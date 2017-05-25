@@ -1,0 +1,8 @@
+h3:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+ngb-carousel{
+    margin-right: -40%;
+}
+

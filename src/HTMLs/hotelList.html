@@ -1,0 +1,33 @@
+<nav class=" navbar navbar-inverse bg-inverse ">
+    <div class="row col-md-8 header">
+        <input class="form-control mr-sm-2" type="text" placeholder="Type a hotel name" #hotelNameInput [(ngModel)]=hotelNameFilter.name>
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+    </div>
+</nav>
+<div class="main-div col-md-12">
+    <h1 class="text-center">{{titel}}</h1>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <span><b> Filter by brand:</b> </span>
+            <div *ngFor="let brand of brands" class="row radioDiv">
+                <input class="radio" type="radio" name="brandCheckbox" id="checkbox_id" [value]="brand.val" [attr.checked]="brand.val==4?'checked':''"
+                    [(ngModel)]=radioVal (change)="onChange(brand.val)">
+                <label class="radio-label" for="checkbox_id">{{brand.txt}} </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-lg-11 col-xl-9  list-group">
+            <div class="list-group-item hotel-item " hotel-item *ngFor="let h of hotels | hotelListPipe: 'name' : hotelNameInput.value :'details' :radioVal   let i=index"
+                [hotel]="h" [index]=i (deletedItem)="deleteHotelByIndex($event)" (endOfVisit)="getRecentlyVisits()" >
+            </div>
+        </div>
+        <div class="col-md-10 col-lg-6 col-xl-2 carusel-div">
+            <recently-visited [recentlyHotels]="recentlyHotels"></recently-visited>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,35 @@
+<div class="hotel-item row col-md-12">
+    <div class="img-div col-md-3">
+        <a href="#hotelCollapse{{hotel.id}}" data-toggle="collapse" (click)="checkVisit()">
+            <img style="width:280px;" src={{hotel.images[0].url}} /></a>
+    </div>
+    <div class="hotel-table-information col-md-8 ">
+        <a href="#hotelCollapse{{hotel.id}}" data-toggle="collapse" (click)="checkVisit()">
+            <h5 class="hotelTitel">
+                {{hotel.name}} - {{hotel.address.city}},{{hotel.address.country}}</h5>
+        </a>
+        <br/> {{hotel.details.brand.txt}}
+        <ngb-rating [rate]="hotel.details.starRating.val" [readonly]="true"></ngb-rating>
+    </div>
+    <div class="buttons-div col-md-1">
+        <a href="#hotelCollapse{{hotel.id}}" data-toggle="collapse" class="btn btn-warning btn-md " [class.disabled]="isCollapseOpen"
+            (click)="onEditClick()">
+            <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></a>
+
+        <a href="#deleteModal{{hotel.id}}" class="btn btn-danger btn-md" data-toggle="modal">
+            <i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+    </div>
+</div>
+<hotel-collapse [hotel]="hotel" [isEdit]="isEdit" class="collapse" id="hotelCollapse{{hotel.id}}" (closeCollapse)="closeCollapse()"></hotel-collapse>
+
+<div id="deleteModal{{hotel.id}}" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h2>Are you shure you whant to delete this hotel?</h2>
+                <button data-dismiss="modal" class="btn btn-danger" (click)="deletHotel()">Delete</button>
+                <button data-dismiss="modal" class="btn btn-success">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

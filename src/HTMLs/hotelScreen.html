@@ -1,0 +1,76 @@
+<div class="main-div col-md-6 container" *ngIf="hotel">
+    <div class="hotel-details">
+        <nav class="navbar bg-inverse ">
+            <div class=" header">
+                <a class="navbar-brand">{{hotel.name}}</a>
+            </div>
+        </nav>
+            <b> hotel address:</b> <p> {{hotel.address.address}} {{hotel.address.city}} {{hotel.address.country}}.</p> <br/>
+        <div>
+            <p> {{hotel.description}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="hotel-details col-md-4">
+            <nav class="navbar bg-inverse ">
+                <div class=" header">
+                    <a class="navbar-brand">Details</a>
+                </div>
+            </nav>
+
+            <table class="table ">
+                <tbody>
+                    <tr>
+                        <th>Stars:</th>
+                        <th>{{hotel.details.starRating.val}}</th>
+                    </tr>
+                    <tr>
+                        <th>Brand:</th>
+                        <th>{{hotel.details.brand.txt}}</th>
+                    </tr>
+                    <tr>
+                        <th>Currency:</th>
+                        <th>{{hotel.details.currency}}</th>
+                    </tr>
+                    <tr>
+                        <th>Check In:</th>
+                        <th>{{hotel.details.checkIn}}</th>
+                    </tr>
+                    <tr>
+                        <th>Check Out:</th>
+                        <th>{{hotel.details.checkOut}}</th>
+                    </tr>
+                    <tr>
+                        <th>num of rooms:</th>
+                        <th>{{hotel.details.numOfRooms}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="hotel-details col-md-4">
+            <nav class="navbar bg-inverse ">
+                <div class=" header">
+                    <a class="navbar-brand">Amenities</a>
+                </div>
+            </nav>
+            <table class="table ">
+                <tbody>
+                    <tr class="text-center" *ngFor="let a of hotel.amenities">
+                        <div>
+                            <th class="amenities">{{a.txt}}</th>
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="img-div"><img class="col-md-12" src={{hotel.images[2].url}} alt=""></div>
+</div>
+
+
+
+
+
+
+

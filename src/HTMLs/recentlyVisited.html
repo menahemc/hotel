@@ -1,0 +1,15 @@
+
+<h2>Recently Viewed</h2>
+<ngb-carousel>
+  <ng-template  *ngFor="let visit of recentlyHotels" ngbSlide style="width:400px; height:300px;" >
+    <img src="{{visit.hotel.images[0].url}}" alt="Random first slide">
+    <div class="carousel-caption">
+      <h3 (click)="routeToHotelScreen(visit)" >{{visit.hotel.name}} - {{visit.hotel.address.city}},{{visit.hotel.address.country}}<br> 
+      {{visit.date.day}}-{{visit.date.time}}</h3>
+    </div>
+  </ng-template>
+  
+</ngb-carousel>
+
+
+

@@ -1,0 +1,55 @@
+
+.main-div{
+    text-align: center;
+    margin-left: 25%;
+    background-color: white;
+    margin: 4px;
+    padding-top: 20px;
+}
+
+.row{
+    margin: 1px;
+}
+
+img{
+    width:unset ;
+    margin-top: 5%;
+    border-radius: 5px ;
+}
+.container{
+    border: 1px solid;
+}
+.hotel-details{
+    height: auto;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    margin: 5px;
+}
+
+.header{
+    color: white;
+    height: 20px;
+}
+.navbar-brand{
+    margin: -10px;
+}
+
+#img-div{
+    width: 38%;
+}
+.navbar{
+    border-radius: 5px;
+}
+tr{
+line-height: 15px;
+   min-height: 15px;
+   height: 15px;
+   text-align: center;
+   }
+   .confirm-button-div{
+       text-align: center;
+   }
+   .btn{
+       margin-right: 1%;
+       margin-top: 1%;
+   }

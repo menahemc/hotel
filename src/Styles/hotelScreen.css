@@ -1,0 +1,35 @@
+
+.main-div{
+    text-align: center;
+    margin-left: 25%;
+    background-color: #f2f2f2;
+}
+.row{
+    margin: 1px;
+}
+img{
+    width:unset ;
+}
+.container{
+    border: 1px solid;
+
+}
+.hotel-details{
+    height: auto;
+    border-radius: 5px;
+    background-color: white;
+    margin: 5px;
+}
+.header{
+    color: white;
+    height: 20px;
+}
+.navbar-brand{
+    margin: -10px;
+}
+.amenities {
+    text-align: center !important;
+}
+.navbar{
+    border-radius: 5px;
+}

@@ -1,0 +1,116 @@
+<div class="main-div col-md-12  " *ngIf="hotel">
+    <div class="hotel-details col-md-11">
+        <nav class="navbar bg-inverse ">
+            <div class=" header">
+                <a class="navbar-brand">{{hotel.name}}</a>
+            </div>
+        </nav>
+
+        <b> hotel address:</b>
+        <p *ngIf="!isEdit"> {{hotel.address.address}} {{hotel.address.city}} {{hotel.address.country}}.</p><br/>
+        <div *ngIf="isEdit">
+            <b> hotel address: </b><input (keypress)="onKeyPress()" type="text" [(ngModel)]=localAddress.address> &nbsp;
+            <b> hotel city:</b><input type="text" (keypress)="onKeyPress()" [(ngModel)]=localAddress.city> &nbsp;
+            <b> hotel country:</b><input type="text" (keypress)="onKeyPress()" [(ngModel)]=localAddress.country>
+        </div>
+        <p *ngIf="!isEdit"> {{hotel.description}}</p>
+        <input *ngIf="isEdit" type="text" [(ngModel)]=localDescription>
+    </div>
+    <div class="row">
+        <div class=" hotel-details  col-md-4 col-xl-3">
+            <nav class="navbar bg-inverse ">
+                <div class=" header">
+                    <a class="navbar-brand">Details</a>
+                </div>
+            </nav>
+
+            <table class="table ">
+                <tbody *ngIf="!isEdit">
+                    <tr>
+                        <th>Stars:</th>
+                        <th> {{hotel.details.starRating.val}}</th>
+                    </tr>
+                    <tr>
+                        <th>Brand:</th>
+                        <th>{{hotel.details.brand.txt}}</th>
+                    </tr>
+                    <tr>
+                        <th>Currency:</th>
+                        <th>{{hotel.details.currency}}</th>
+                    </tr>
+                    <tr>
+                        <th>Check In:</th>
+                        <th>{{hotel.details.checkIn}}</th>
+                    </tr>
+                    <tr>
+                        <th>Check Out:</th>
+                        <th>{{hotel.details.checkOut}}</th>
+                    </tr>
+                    <tr>
+                        <th>num of rooms:</th>
+                        <th>{{hotel.details.numOfRooms}}</th>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="isEdit">
+                    <tr>
+                        <th>Stars:</th>
+                        <th><input type="text" [(ngModel)]=localDetails.starRating.val></th>
+                    </tr>
+                    <tr>
+                        <th>Brand:</th>
+                        <th><input type="text" [(ngModel)]=localDetails.brand.txt></th>
+                    </tr>
+                    <tr>
+                        <th>Currency:</th>
+                        <th><input type="text" [(ngModel)]=localDetails.currency></th>
+                    </tr>
+                    <tr>
+                        <th>Check In:</th>
+                        <th><input type="text" [(ngModel)]=localDetails.checkIn></th>
+                    </tr>
+                    <tr>
+                        <th>Check Out:</th>
+                        <th><input type="text" [(ngModel)]=localDetails.checkOut></th>
+                    </tr>
+                    <tr>
+                        <th>num of rooms:</th>
+                        <th><input type="text" [(ngModel)]=localDetails.numOfRooms></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="hotel-details col-md-3">
+            <nav class="navbar bg-inverse ">
+                <div class=" header">
+                    <a class="navbar-brand">Amenities</a>
+                </div>
+            </nav>
+            <table class="table ">
+                <tbody *ngIf="isEdit==false">
+                    <tr class="text-center" *ngFor="let a of localHotel.amenities">
+                        <div>
+                            <th class="amenities">{{a.txt}}</th>
+                        </div>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="isEdit">
+                    <tr class="text-center" *ngFor="let a of localAmenities">
+                        <div>
+                            <th class="amenities"> <input type="text" [(ngModel)]=a.txt></th>
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="  hotel-details" id="img-div">
+            <img class="col-md-12" src={{hotel.images[2].url}} alt="">
+        </div>
+    </div>
+    <div *ngIf="isEdit" class="confirm-button-div" class="row">
+        <div class="col-md-4"></div>
+        <a href="#hotelCollapse{{hotel.id}}" data-toggle="collapse" class="btn btn-success btn-md col-md-2" (click)="saveChanges()">Save changes</a>
+
+        <a href="#hotelCollapse{{hotel.id}}" data-toggle="collapse" class="btn btn-danger btn-md col-md-1" (click)="close()">Close</a>
+    </div>
+</div>
